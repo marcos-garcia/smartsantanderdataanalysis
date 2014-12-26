@@ -1,0 +1,43 @@
+# ssingestor.flume: A single-node Flume ingestor for SmartSantander sensor information
+
+# Name the components on this agent
+a1.sources = r1
+a1.sinks = k1,k2
+a1.channels = c1
+
+# Describe/configure the Kafka source parameters
+a1.sources.r1.type = org.apache.flume.source.kafka.KafkaSource
+a1.sources.r1.zookeeper.connect = localhost:2181
+a1.sources.r1.group.id = es
+a1.sources.r1.topic = ssdata
+
+
+# Use a channel which buffers events in memory
+a1.channels.c1.type = memory
+a1.channels.c1.capacity = 1000
+a1.channels.c1.transactionCapacity = 100
+a1.sources.r1.interceptors = i1
+a1.sources.r1.interceptors.i1.type = com.marcosgarciacasado.ssjsonformatterinterceptor.SSJsonFormatterInterceptor$Builder
+
+# Describe the hdfs sink for the batch processing
+a1.sinks.k1.type = hdfs
+a1.sinks.k1.hdfs.path = /user/cloudera/SSData/%Y/%m
+a1.sinks.k1.hdfs.filePrefix = SSData
+a1.sinks.k1.hdfs.fileType = DataStream
+a1.sinks.k1.hdfs.rollInterval = 900
+a1.sinks.k1.hdfs.rollSize = 0
+a1.sinks.k1.hdfs.rollCount = 0
+
+# Describe the kafka sink for the stream processing
+a1.sinks.k2.type = org.apache.flume.sink.kafka.KafkaSink
+a1.sinks.k2.channel = all_channel
+a1.sinks.k2.zk.connect = localhost:2181
+a1.sinks.k2.topic = ssrtdata
+a1.sinks.k2.batchsize = 200
+a1.sinks.k2.producer.type = async
+a1.sinks.k2.serializer.class = kafka.serializer.StringEncoder
+
+# Bind the source and sink to the channel
+a1.sources.r1.channels = c1,c2
+a1.sinks.k1.channel = c1
+a1.sinks.k2.channel = c1
