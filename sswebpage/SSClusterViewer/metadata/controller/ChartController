@@ -1,0 +1,94 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ChartController"
+    },
+    "designerId": "4ec6fea1-662f-4b3b-90af-539ca744b327",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "date"
+                ],
+                "fn": "loadDay",
+                "implHandler": [
+                    "window.seldate = date;",
+                    "var store = Ext.data.StoreManager.lookup('DayValuesStore');",
+                    "",
+                    "var d = new Date();",
+                    "",
+                    "",
+                    "console.log(date.toISOString());",
+                    "console.log(date.toString());",
+                    "",
+                    "date.setTime(date.getTime() + (1000 * 60 * 60 * 24));",
+                    "",
+                    "store.load({",
+                    "params:{",
+                    "    'measure'  : 'temperature',",
+                    "    'day': date.toISOString().substr(0,10)+\"T00:00:00.000+02:00\"",
+                    "}",
+                    "});"
+                ]
+            },
+            "designerId": "066417ce-a3e3-46c3-8ce5-1b99e92cae4d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "clusterid"
+                ],
+                "fn": "loadCluster",
+                "implHandler": [
+                    "window.clusterid = clusterid;",
+                    "var store = Ext.data.StoreManager.lookup('ClusterCentersStore');",
+                    "",
+                    "store.load({",
+                    "params:{'clusterid': clusterid}",
+                    "});"
+                ]
+            },
+            "designerId": "75fe9308-40ce-4215-a564-ea94be959a0d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "id",
+                    "name",
+                    "data"
+                ],
+                "fn": "updateSerie",
+                "implHandler": [
+                    "window.chart.series[id].update({",
+                    "    name: name,",
+                    "    data: data",
+                    "});"
+                ]
+            },
+            "designerId": "e531c9ee-3cfd-4346-8088-8f565dfabb67"
+        }
+    ]
+}

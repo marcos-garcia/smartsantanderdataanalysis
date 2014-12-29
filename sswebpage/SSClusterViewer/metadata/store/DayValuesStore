@@ -1,0 +1,66 @@
+{
+    "type": "arraystore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "DayValuesStore",
+        "model": "Value",
+        "storeId": "DayValuesStore"
+    },
+    "designerId": "da78ea29-c0a3-430b-afa1-484859277a36",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/ssdatarest-0.1.0/dayresults"
+            },
+            "designerId": "2782551f-afa8-4415-9d27-90c0d8de6589",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Array",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "record": null,
+                        "root": null
+                    },
+                    "designerId": "f0edeb1c-2d7d-4572-8513-a5984f1573e0"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onArraystoreLoad",
+                "implHandler": [
+                    "console.log(records);",
+                    "var clusterid = window.clusterid;",
+                    "var data = [];",
+                    "records.forEach(function(e){",
+                    "    data.push(e.raw);",
+                    "});",
+                    "SSClusterViewer.getApplication().getController('ChartController').updateSerie(0, \"Day \"+window.seldate.toISOString().substr(0,10), data);"
+                ],
+                "name": "load",
+                "scope": "me"
+            },
+            "designerId": "61a3a865-8a6e-4051-838f-d54399edb243"
+        }
+    ]
+}

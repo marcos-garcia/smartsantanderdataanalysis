@@ -1,0 +1,13 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js6",
+        "url": "http://code.highcharts.com/modules/exporting.js"
+    },
+    "designerId": "1f63b14d-db6c-4487-ac9c-6efd1b1bec41"
+}

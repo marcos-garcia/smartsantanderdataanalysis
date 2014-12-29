@@ -1,0 +1,53 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MeasureDim"
+    },
+    "designerId": "87070218-540e-4159-993e-e83738ed4c1e",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "measure",
+                "type": null
+            },
+            "designerId": "fc046a18-6925-4c32-a8d8-6a682d840b7d"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "mean",
+                "type": "float"
+            },
+            "designerId": "760b767a-7c64-45f2-b47c-575efffae06c"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "stddev",
+                "type": "float"
+            },
+            "designerId": "6dd907a2-b724-49d2-80ca-3c49aaf61d10"
+        }
+    ]
+}

@@ -1,0 +1,61 @@
+{
+    "type": "arraystore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ClusterCentersStore",
+        "model": "Value",
+        "storeId": "ClusterCentersStore"
+    },
+    "designerId": "0f187705-a261-4154-8649-1f9b9599b356",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/ssdatarest-0.1.0/clustercenter"
+            },
+            "designerId": "ac93db54-0380-43b6-bde9-bbfb408fcc95",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Array",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "designerId": "b3aed4b5-05bd-4279-bf2d-b0d6d7627238"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onArraystoreLoad",
+                "implHandler": [
+                    "var clusterid = window.clusterid;",
+                    "var data = [];",
+                    "records.forEach(function(e){",
+                    "    data.push(e.raw);",
+                    "});",
+                    "SSClusterViewer.getApplication().getController('ChartController').updateSerie(1, \"Cluster \"+clusterid, data);"
+                ],
+                "name": "load",
+                "scope": "me"
+            },
+            "designerId": "95473f83-9aef-4da0-bf21-810be083cdcc"
+        }
+    ]
+}

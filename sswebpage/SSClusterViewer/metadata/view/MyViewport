@@ -1,0 +1,384 @@
+{
+    "type": "Ext.container.Viewport",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "designer|userClassName": "MyViewport",
+        "layout": "border"
+    },
+    "designerId": "fcb36571-5be3-43c9-9ca5-7186643b8845",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "chartPanel",
+                "header": false,
+                "id": "chartPanel",
+                "itemId": "chartPanel",
+                "layout|flex": 5,
+                "layout|region": "center",
+                "title": "My Panel"
+            },
+            "designerId": "331d63f8-bdd6-4cf0-8ffd-2fe8b4cb6b9b",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onChartPanelAfterRender",
+                        "implHandler": [
+                            "    //window.chart = Highcharts.Chart",
+                            "    $('#chartPanel-innerCt').highcharts({",
+                            "        chart: {",
+                            "            type: 'spline'",
+                            "        },",
+                            "        title: {",
+                            "            text: 'Cluster vs Day comparison'",
+                            "        },",
+                            "        xAxis: {",
+                            "            categories: [",
+                            "                '00:00',",
+                            "                '00:15',",
+                            "                '00:30',",
+                            "                '00:45',",
+                            "                '01:00',",
+                            "                '01:15',",
+                            "                '01:30',",
+                            "                '01:45',",
+                            "                '02:00',",
+                            "                '02:15',",
+                            "                '02:30',",
+                            "                '02:45',",
+                            "                '03:00',",
+                            "                '03:15',",
+                            "                '03:30',",
+                            "                '03:45',",
+                            "                '04:00',",
+                            "                '04:15',",
+                            "                '04:30',",
+                            "                '04:45',",
+                            "                '05:00',",
+                            "                '05:15',",
+                            "                '05:30',",
+                            "                '05:45',",
+                            "                '06:00',",
+                            "                '06:15',",
+                            "                '06:30',",
+                            "                '06:45',",
+                            "                '07:00',",
+                            "                '07:15',",
+                            "                '07:30',",
+                            "                '07:45',",
+                            "                '08:00',",
+                            "                '08:15',",
+                            "                '08:30',",
+                            "                '08:45',",
+                            "                '09:00',",
+                            "                '09:15',",
+                            "                '09:30',",
+                            "                '09:45',",
+                            "                '10:00',",
+                            "                '10:15',",
+                            "                '10:30',",
+                            "                '10:45',",
+                            "                '11:00',",
+                            "                '11:15',",
+                            "                '11:30',",
+                            "                '11:45',",
+                            "                '12:00',",
+                            "                '12:15',",
+                            "                '12:30',",
+                            "                '12:45',",
+                            "                '13:00',",
+                            "                '13:15',",
+                            "                '13:30',",
+                            "                '13:45',",
+                            "                '14:00',",
+                            "                '14:15',",
+                            "                '14:30',",
+                            "                '14:45',",
+                            "                '15:00',",
+                            "                '15:15',",
+                            "                '15:30',",
+                            "                '15:45',",
+                            "                '16:00',",
+                            "                '16:15',",
+                            "                '16:30',",
+                            "                '16:45',",
+                            "                '17:00',",
+                            "                '17:15',",
+                            "                '17:30',",
+                            "                '17:45',",
+                            "                '18:00',",
+                            "                '18:15',",
+                            "                '18:30',",
+                            "                '18:45',",
+                            "                '19:00',",
+                            "                '19:15',",
+                            "                '19:30',",
+                            "                '19:45',",
+                            "                '20:00',",
+                            "                '20:15',",
+                            "                '20:30',",
+                            "                '20:45',",
+                            "                '21:00',",
+                            "                '21:15',",
+                            "                '21:30',",
+                            "                '21:45',",
+                            "                '22:00',",
+                            "                '22:15',",
+                            "                '22:30',",
+                            "                '22:45',",
+                            "                '23:00',",
+                            "                '23:15',",
+                            "                '23:30',",
+                            "                '23:45'",
+                            "            ],",
+                            "            labels: {",
+                            "                rotation: 45,",
+                            "                step: 4",
+                            "            }",
+                            "        },",
+                            "        yAxis: {",
+                            "            title: {",
+                            "                text: 'Temperature'",
+                            "            },",
+                            "            labels: {",
+                            "                formatter: function () {",
+                            "                    return this.value + ' °C';",
+                            "                }",
+                            "            }",
+                            "        },",
+                            "        tooltip: {",
+                            "            crosshairs: true,",
+                            "            shared: true",
+                            "        },",
+                            "        series: [{",
+                            "            name: 'Day Serie',",
+                            "            data: []",
+                            "",
+                            "        }, {",
+                            "            name: 'Cluster Serie',",
+                            "            data: []",
+                            "        }]",
+                            "    });",
+                            "",
+                            "window.chart = Highcharts.charts[0];",
+                            ""
+                        ],
+                        "name": "afterrender",
+                        "scope": "me"
+                    },
+                    "designerId": "a368ed9f-f48b-46ad-969b-1727e50eccd9"
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onChartPanelResize",
+                        "implHandler": [
+                            "window.chart.reflow();"
+                        ],
+                        "name": "resize",
+                        "scope": "me"
+                    },
+                    "designerId": "67235096-e4de-4cda-9514-94ae63b29a22"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "header": false,
+                "layout": "border",
+                "layout|flex": 1,
+                "layout|region": "west",
+                "title": "My Panel",
+                "width": 170
+            },
+            "designerId": "81dc4bd4-6d0f-41b1-be74-b0a75802ca96",
+            "cn": [
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "clusterPanel",
+                        "dock": "top",
+                        "height": null,
+                        "html": [
+                            "<br/>",
+                            "<div align='center'>",
+                            "<a href=\"javascript:SSClusterViewer.getApplication().getController('ChartController').loadCluster(1);\" class=\"button-small\" style=\"text-decoration:none; color: white; background-color: #b4cbaf; background: linear-gradient(top, #00b5e5, #008db2);\">Cluster 1</a>",
+                            "    <a href=\"javascript:SSClusterViewer.getApplication().getController('ChartController').loadCluster(2);\" class=\"button-small\" style=\"text-decoration:none; color: white; background-color: #acbe7d; background: linear-gradient(top, #00b5e5, #008db2);\">Cluster 2</a>",
+                            "    <a href=\"javascript:SSClusterViewer.getApplication().getController('ChartController').loadCluster(3);\" class=\"button-small\" style=\"text-decoration:none; color: white; background-color: #b6aa46; background: linear-gradient(top, #00b5e5, #008db2);\">Cluster 3</a>",
+                            "    <a href=\"javascript:SSClusterViewer.getApplication().getController('ChartController').loadCluster(4);\" class=\"button-small\" style=\"text-decoration:none; color: white; background-color: #ca8f00; background: linear-gradient(top, #00b5e5, #008db2);\">Cluster 4</a>",
+                            "    <a href=\"javascript:SSClusterViewer.getApplication().getController('ChartController').loadCluster(5);\" class=\"button-small\" style=\"text-decoration:none; color: white; background-color: #e56800; background: linear-gradient(top, #00b5e5, #008db2);\">Cluster 5</a>",
+                            "    <a href=\"javascript:SSClusterViewer.getApplication().getController('ChartController').loadCluster(6);\" class=\"button-small\" style=\"text-decoration:none; color: white; background-color: #ff0000; background: linear-gradient(top, #00b5e5, #008db2);\">Cluster 6</a>",
+                            "</div>",
+                            "<br/>"
+                        ],
+                        "id": "clusterPanel",
+                        "itemId": "clusterPanel",
+                        "layout|flex": 1,
+                        "layout|region": "north",
+                        "padding": null,
+                        "title": "Clusters"
+                    },
+                    "designerId": "b7ff810f-0d56-4414-b51d-0a8cb97c4801"
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "header": false,
+                        "layout": "border",
+                        "layout|region": "center",
+                        "title": "My Panel"
+                    },
+                    "designerId": "e8687074-707b-4953-af64-21491d6d9391",
+                    "cn": [
+                        {
+                            "type": "Ext.panel.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "middle",
+                                "container|pack": "center",
+                                "defaultAlign": null,
+                                "designer|displayName": "calendarPanel",
+                                "dock": null,
+                                "id": "calendarPanel",
+                                "itemId": "calendarPanel",
+                                "layout": "hbox",
+                                "layout|flex": 1,
+                                "layout|region": "center",
+                                "minHeight": null,
+                                "padding": null,
+                                "title": "Days Classification"
+                            },
+                            "designerId": "c6b6cc89-e4f0-4954-83b4-3d520af5b355",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onCalendarPanelAfterRender",
+                                        "implHandler": [
+                                            "var datas = [];",
+                                            "",
+                                            "var parser = function(data) {",
+                                            "\tvar stats = {};",
+                                            "\tfor (var d in data) {",
+                                            "\t\tstats[data[d].date] = data[d].value;",
+                                            "\t}",
+                                            "\treturn stats;",
+                                            "};",
+                                            "",
+                                            "window.calDays = new CalHeatMap();",
+                                            "window.calDays.init({",
+                                            "    itemSelector: \"#calendarPanel-innerCt\",",
+                                            "    itemName: [\"cluster\", \"cluster\"],",
+                                            "\tdomain: \"month\",",
+                                            "\tsubDomain: \"x_day\",",
+                                            "\tdata: datas,",
+                                            "\tafterLoadData: parser,",
+                                            "    dataType: \"json\",",
+                                            "\tstart: new Date(2014, 6, 1),",
+                                            "\tcellSize: 20,",
+                                            "\tcellPadding: 5,",
+                                            "\tdomainGutter: 10,",
+                                            "\trange: 10,",
+                                            "\tverticalOrientation: true,",
+                                            "\tdomainDynamicDimension: false,",
+                                            "\tdisplayLegend: false,",
+                                            "\tsubDomainTextFormat: '%d',",
+                                            "\tdomainLabelFormat: \"%B %Y\",",
+                                            "\tlegend: [1, 2, 3, 4, 5, 6],",
+                                            "\tlegendColors:  {",
+                                            "\t\tmin: \"lightgrey\",",
+                                            "\t\tmax: \"red\",",
+                                            "\t\tempty: \"lightgrey\"",
+                                            "\t},",
+                                            "\tonClick: function(date, nb) {",
+                                            "\t\tSSClusterViewer.getApplication().getController('ChartController').loadDay(date);",
+                                            "\t}",
+                                            "",
+                                            "});",
+                                            ""
+                                        ],
+                                        "name": "afterrender",
+                                        "scope": "me"
+                                    },
+                                    "designerId": "689e4bca-e0ce-40d0-9df4-305ac9d9b4ae"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom",
+                        "header": false,
+                        "html": [
+                            "<br/>",
+                            "<div align='center'>",
+                            "<a href=\"javascript:window.calDays.previous()\" class=\"button button-rounded button-flat-primary\">",
+                            "        <i class=\"fa fa-caret-up\"></i>",
+                            "    </a>",
+                            "<a href=\"javascript:window.calDays.next()\" class=\"button button-rounded button-flat-primary\">",
+                            "        <i class=\"fa fa-caret-down\"></i>",
+                            "    </a>",
+                            "</div>",
+                            "<br/>"
+                        ],
+                        "title": "My Panel"
+                    },
+                    "designerId": "42d150fd-fd05-4d38-bbee-114261f176cd"
+                }
+            ]
+        }
+    ]
+}

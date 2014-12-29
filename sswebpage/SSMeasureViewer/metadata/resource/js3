@@ -1,0 +1,13 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js3",
+        "url": "jquery.datetimepicker.js"
+    },
+    "designerId": "fd09f598-fb2b-418e-9801-5ec88773b12a"
+}

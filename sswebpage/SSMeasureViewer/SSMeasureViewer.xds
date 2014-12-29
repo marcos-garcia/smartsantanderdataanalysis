@@ -1,0 +1,71 @@
+{
+    "name": "SSMeasureViewer",
+    "settings": {
+        "cmd": {
+            "license": "",
+            "cmdVersion": "",
+            "frameworkVersion": ""
+        },
+        "canvasControls": {
+            "viewportSize": {
+                "name": "Auto Expand",
+                "builtIn": true,
+                "height": null,
+                "width": null
+            }
+        },
+        "urlPrefix": "http://localhost:8900/SSMeasureViewer/",
+        "exportPath": "/opt/apache-tomcat-7.0.54/webapps/SSMeasureViewer",
+        "spacesToIndent": 4,
+        "sdkPath": "",
+        "lineEnding": "LF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "buildShouldOverwriteIndex": true,
+        "generateArchitectVersion": true,
+        "displayfield-ExtBox1-1278-inputEl": "Not Installed",
+        "displayfield-ExtBox1-1332-inputEl": "Not Installed",
+        "displayfield-ExtBox1-1382-inputEl": "Not Installed",
+        "displayfield-ExtBox1-1282-inputEl": "Not Installed",
+        "displayfield-ExtBox1-1650-inputEl": "Not Installed"
+    },
+    "xdsVersion": "3.0.4",
+    "xdsBuild": 1386,
+    "schemaVersion": 1,
+    "upgradeVersion": 300000000004,
+    "framework": "ext42",
+    "viewOrderMap": {
+        "view": [
+            "e170c1d9-31cb-470b-ab52-b87fae5b222f"
+        ],
+        "store": [
+            "21c52cb0-e692-4963-9b8c-e2af1a1b6832",
+            "6dc3bf61-f544-45a1-b3eb-761ab063f4af",
+            "8df3fe23-c7c3-4e39-b941-3060765da140"
+        ],
+        "controller": [
+            "f8859131-e8de-4ba3-ad69-ca37c31f595d"
+        ],
+        "model": [
+            "8dc26d9d-8485-4b89-a6cd-ab0bdbf83360",
+            "87070218-540e-4159-993e-e83738ed4c1e"
+        ],
+        "resource": [
+            "a28b1df6-0fca-4bfb-aa73-ab67d35a4e6f",
+            "d62d3733-a270-4a2e-b631-0f49ca0cec76",
+            "0858e2c9-5c28-4b4a-afd1-d07ea93369ac",
+            "a3fee512-2c3a-49a4-8d17-24170fb91069",
+            "b188f7e2-451e-453c-9059-f4b0d99efff2",
+            "8ec1d483-ab73-4beb-a6c7-5838752daabf",
+            "f00acde2-1ea5-4634-a043-b2239649c751",
+            "fd09f598-fb2b-418e-9801-5ec88773b12a",
+            "fade5646-f128-40c3-9058-916e693b301a",
+            "dc1fe6da-749e-4870-9283-fc979abb7358",
+            "eb31aca9-090a-483d-9434-9abdff9f0261",
+            "1f63b14d-db6c-4487-ac9c-6efd1b1bec41"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

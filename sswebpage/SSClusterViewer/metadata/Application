@@ -1,0 +1,27 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "controllers": [
+            "ChartController"
+        ],
+        "models": [
+            "DayResult",
+            "Value"
+        ],
+        "name": "SSClusterViewer",
+        "stores": [
+            "ResultsStore",
+            "DayValuesStore",
+            "ClusterCentersStore"
+        ],
+        "views": [
+            "MyViewport"
+        ]
+    },
+    "designerId": "application"
+}

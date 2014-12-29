@@ -1,0 +1,13 @@
+{
+    "type": "cssresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "css2",
+        "url": "resources/buttons/css/buttons.css"
+    },
+    "designerId": "8e200735-3ea7-43de-9327-646023f986c7"
+}

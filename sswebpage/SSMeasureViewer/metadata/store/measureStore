@@ -1,0 +1,61 @@
+{
+    "type": "arraystore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "designer|userClassName": "measureStore",
+        "model": "Measure",
+        "storeId": "measureStore"
+    },
+    "designerId": "21c52cb0-e692-4963-9b8c-e2af1a1b6832",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/ssdatarest-0.1.0/measuremap"
+            },
+            "designerId": "dee5cf72-f4aa-4521-b7b0-d07cf36b3390",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Array",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "designerId": "25f37fb6-5954-4ff0-bbd9-2f67df29e8f6"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onArraystoreLoad",
+                "implHandler": [
+                    "if(document.getElementById('mapPanel-innerCt')!=null)",
+                    "{",
+                    "   SSMeasureViewer.getApplication().getController('MapDataController').refreshMapData(store);",
+                    "}",
+                    ""
+                ],
+                "name": "load",
+                "scope": "me"
+            },
+            "designerId": "0256b828-9592-4c02-b06f-fc6562e3041c"
+        }
+    ]
+}

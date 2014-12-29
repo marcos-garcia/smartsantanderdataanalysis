@@ -1,0 +1,13 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js4",
+        "url": "jquery.dd.js"
+    },
+    "designerId": "fade5646-f128-40c3-9058-916e693b301a"
+}

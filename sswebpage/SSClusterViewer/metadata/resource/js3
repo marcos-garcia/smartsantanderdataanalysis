@@ -1,0 +1,13 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js3",
+        "url": "resources/buttons/js/buttons.js"
+    },
+    "designerId": "4447d263-608d-4507-af57-345e223b1f2d"
+}

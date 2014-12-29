@@ -1,0 +1,165 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MapDataController"
+    },
+    "designerId": "f8859131-e8de-4ba3-ad69-ca37c31f595d",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "store"
+                ],
+                "fn": "refreshMapData",
+                "implHandler": [
+                    "this.clearLayers();",
+                    "",
+                    "var markerLayers = [];",
+                    "",
+                    "store.data.items.forEach(function(e) {",
+                    "    //console.log(e);",
+                    "    if(e.raw.latitude.length > 0 && parseFloat(e.raw.longitude) !== 0 && e.raw.value > -10 && e.raw.value < 45){",
+                    "    var min = window.selectedmeasuremean - window.selectedmeasurestddev;",
+                    "    var max = window.selectedmeasuremean + window.selectedmeasurestddev;",
+                    "    var halfmax = (max-min)/2;",
+                    "    var blue = Math.floor(Math.max(0, 255*(1 - (e.raw.value/halfmax))));",
+                    "    var red  = Math.floor(Math.max(0, 255*((e.raw.value/halfmax) - 1)));",
+                    "    var green = 255 - blue - red;",
+                    "    var rgb = blue | (green << 8) | (red << 16);",
+                    "    var strrgb = rgb.toString(16);",
+                    "        while(strrgb.length < 6){",
+                    "            strrgb = '0'+strrgb;",
+                    "        }",
+                    "    strrgb = '#' + strrgb;",
+                    "    //console.log(strrgb);",
+                    "    //console.log('rgb('+red.toString()+','+green.toString()+','+blue.toString()+')');",
+                    "",
+                    "   // L.mapbox.featureLayer({",
+                    "    markerLayers.push({",
+                    "    // this feature is in the GeoJSON format: see geojson.org",
+                    "    // for the full specification",
+                    "    type: 'Feature',",
+                    "    geometry: {",
+                    "        type: 'Point',",
+                    "        // coordinates here are in longitude, latitude order because",
+                    "        // x, y is the standard for GeoJSON and many formats",
+                    "        coordinates: [",
+                    "          parseFloat(e.raw.longitude),",
+                    "          parseFloat(e.raw.latitude)",
+                    "        ]",
+                    "    },",
+                    "    properties: {",
+                    "        title: window.selectedmeasure.charAt(0).toUpperCase() + window.selectedmeasure.substring(1,100),",
+                    "        description: e.raw.value.toFixed(1).toString()+window.selectedmeasuresufix,",
+                    "        // one can customize markers by adding simplestyle properties",
+                    "        // https://www.mapbox.com/foundations/an-open-platform/#simplestyle",
+                    "        'marker-size': 'small',",
+                    "        'marker-color': strrgb",
+                    "        //text: e.raw.value.toFixed(1).toString()+window.selectedmeasuresufix",
+                    "    }",
+                    "    });",
+                    "",
+                    "    //addressPoints.push(new L.LatLng(e.raw.latitude, e.raw.longitude));",
+                    "",
+                    "",
+                    "    }",
+                    "",
+                    "",
+                    "});",
+                    "   var featureLayer = L.mapbox.featureLayer({",
+                    "        type: \"FeatureCollection\",",
+                    "        features: markerLayers",
+                    "        });",
+                    "  ",
+                    "",
+                    "window.featureLayer = featureLayer;",
+                    "    map.addLayer(window.featureLayer);",
+                    "map.on('popupopen',function(e){",
+                    "});",
+                    "    //var heat = L.heatLayer(addressPoints, {maxZoom: 18}).addTo(map);",
+                    ""
+                ]
+            },
+            "designerId": "aa56d5fb-5336-4977-8a40-6925164075ce"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "measure",
+                    "date"
+                ],
+                "fn": "requestData",
+                "implHandler": [
+                    "var store = Ext.data.StoreManager.lookup('measureStore');",
+                    "",
+                    "store.load({",
+                    "params:{'measure': measure,",
+                    "        'time': date}",
+                    "});"
+                ]
+            },
+            "designerId": "79ebfdd6-be20-472e-b4b2-f00d88482e06"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "clearLayers",
+                "implHandler": [
+                    "window.map.eachLayer(function (layer) {",
+                    "    if(!(layer.feature === undefined)){",
+                    "        window.map.removeLayer(layer);",
+                    "    }",
+                    "});",
+                    ""
+                ]
+            },
+            "designerId": "911de2f8-66b6-47a7-88c1-2701fbb35f20"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "application"
+                ],
+                "fn": "init",
+                "implHandler": [
+                    "window.selecteddate=\"2014-07-18 19:00:00\";",
+                    "window.selectedmeasure=\"temperature\";",
+                    "window.selectedmeasuresufix=\" ºC\";",
+                    "window.selectedmeasuremean=22.0;",
+                    "window.selectedmeasurestddev=27.0;",
+                    "console.log(\"launchh\");",
+                    "console.log(window);"
+                ]
+            },
+            "designerId": "3d0e2c91-d0ce-4cb0-a45e-d435397a95d6"
+        }
+    ]
+}

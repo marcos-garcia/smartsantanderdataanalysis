@@ -1,0 +1,13 @@
+{
+    "type": "cssresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "css1",
+        "url": "http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+    },
+    "designerId": "6b867b0f-541d-48b5-8eea-48b9a29cb726"
+}

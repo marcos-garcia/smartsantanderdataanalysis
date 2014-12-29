@@ -1,0 +1,72 @@
+{
+    "type": "arraystore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "designer|userClassName": "ResultsStore",
+        "model": "DayResult",
+        "storeId": "ResultsStore"
+    },
+    "designerId": "2b72fde7-54ee-4da0-994f-462fe0373351",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/ssdatarest-0.1.0/clusterresults"
+            },
+            "designerId": "e65f1c33-06be-4b24-af77-829ba7a09e22",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Array",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "designerId": "8145aa54-118d-4655-82e5-da0fa5d341e2"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onArraystoreLoad",
+                "implHandler": [
+                    "var datas = [];",
+                    "",
+                    "records.forEach(function(e){",
+                    "    var tdate = e.raw.day;",
+                    "    var year = tdate.substr(0,4);",
+                    "    var month = tdate.substr(5,2);",
+                    "    var day = tdate.substr(8,2);",
+                    "",
+                    "    var dts = (Date.UTC(parseInt(year), parseInt(month)-1, parseInt(day))/1000).toString();",
+                    "    var val = e.raw.clusterid;",
+                    "    var row = {date: dts, value: val+1};",
+                    "    datas.push(row);",
+                    "});",
+                    "",
+                    "console.log(datas);",
+                    "window.calDays.update(datas);"
+                ],
+                "name": "load",
+                "scope": "me"
+            },
+            "designerId": "30b27365-e16d-4337-92de-9ac0d0f11df3"
+        }
+    ]
+}

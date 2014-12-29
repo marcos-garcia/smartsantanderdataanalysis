@@ -1,0 +1,53 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Measure"
+    },
+    "designerId": "8dc26d9d-8485-4b89-a6cd-ab0bdbf83360",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "latitude",
+                "type": "string"
+            },
+            "designerId": "0f6ee02f-1815-473f-9a8d-590f6cdcd5bb"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "longitude",
+                "type": "string"
+            },
+            "designerId": "c045da7e-f790-4fe0-a9c3-c3d468394d30"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "value",
+                "type": "float"
+            },
+            "designerId": "95d277b3-f574-40ec-b161-1b12fe883014"
+        }
+    ]
+}

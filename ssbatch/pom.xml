@@ -7,7 +7,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<name>Smart Santander Data Batch processing</name>
-	<url>https://github.com/marcos-garcia/pem</url>
+	<url>https://github.com/marcos-garcia/smartsantanderdataanalysis</url>
 	<description>Batch processing part of the Smart Santander Data Analysis project.</description>
 
 	<properties>

@@ -1,0 +1,13 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js",
+        "url": "http://d3js.org/d3.v3.min.js"
+    },
+    "designerId": "ae5a1a5a-b0b9-4cbb-a1c2-6a52eee1cbd5"
+}

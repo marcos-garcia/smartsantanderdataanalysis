@@ -1,0 +1,291 @@
+{
+    "type": "Ext.container.Viewport",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "designer|userClassName": "MyViewport",
+        "layout": "border"
+    },
+    "designerId": "e170c1d9-31cb-470b-ab52-b87fae5b222f",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "defaultAlign": "other-tr",
+                "fixed": true,
+                "floating": true,
+                "header": false,
+                "id": "form",
+                "itemId": "form",
+                "shadow": false,
+                "title": "Smart Santander Measure Viewer"
+            },
+            "designerId": "b34956a3-14cd-488d-9214-595c93e9610f",
+            "cn": [
+                {
+                    "type": "Ext.form.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "bodyPadding": 10,
+                        "container|align": "stretch",
+                        "container|padding": null,
+                        "dock": null,
+                        "fixed": true,
+                        "header": false,
+                        "id": null,
+                        "itemId": null,
+                        "layout": "hbox",
+                        "title": null,
+                        "toFrontOnShow": false,
+                        "width": null
+                    },
+                    "designerId": "589141ba-70f1-47f3-9c9b-9ba1e14a0b84",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "measure",
+                                "fieldLabel": "Label",
+                                "hideLabel": true,
+                                "layout|flex": 1,
+                                "queryMode": "local",
+                                "store": "measureDimStore",
+                                "valueField": "measure"
+                            },
+                            "designerId": "4ded0f7f-ec8a-480e-a3e6-a83552dfb70a",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onComboboxChange",
+                                        "implHandler": [
+                                            "window.selectedmeasure=newValue;",
+                                            "window.selectedmeasuremean=field.displayTplData[0].mean;",
+                                            "window.selectedmeasurestddev=field.displayTplData[0].stddev;",
+                                            "console.log(field);"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "designerId": "fef75ab9-84b7-4526-8570-7e224e8e6813"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "emptyText": "Choose a date...",
+                                "fieldLabel": "Label",
+                                "focusOnToFront": false,
+                                "hideLabel": true,
+                                "id": null,
+                                "inputId": "dtpicker",
+                                "itemId": null,
+                                "layout|flex": null,
+                                "padding": "0 15 0 15",
+                                "size": null,
+                                "toFrontOnShow": false
+                            },
+                            "designerId": "35954972-c451-4bae-abec-8ce3fb2668aa",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onTextfieldAfterRender",
+                                        "implHandler": [
+                                            "jQuery('#dtpicker').datetimepicker({",
+                                            "    format:'Y-m-d H:i:00',",
+                                            "  inline:false,",
+                                            " allowTimes:[",
+                                            "'00:00', '00:15', '00:30', '00:45',",
+                                            "'01:00', '01:15', '01:30', '01:45',",
+                                            "'02:00', '02:15', '02:30', '02:45',",
+                                            "'03:00', '03:15', '03:30', '03:45',",
+                                            "'04:00', '04:15', '04:30', '04:45',",
+                                            "'05:00', '05:15', '05:30', '05:45',",
+                                            "'06:00', '06:15', '06:30', '06:45',",
+                                            "'07:00', '07:15', '07:30', '07:45',",
+                                            "'08:00', '08:15', '08:30', '08:45',",
+                                            "'09:00', '09:15', '09:30', '09:45',",
+                                            "'10:00', '10:15', '10:30', '10:45',",
+                                            "'11:00', '11:15', '11:30', '11:45',",
+                                            "'12:00', '12:15', '12:30', '12:45',",
+                                            "'13:00', '13:15', '13:30', '13:45',",
+                                            "'14:00', '14:15', '14:30', '14:45',",
+                                            "'15:00', '15:15', '15:30', '15:45',",
+                                            "'16:00', '16:15', '16:30', '16:45',",
+                                            "'17:00', '17:15', '17:30', '17:45',",
+                                            "'18:00', '18:15', '18:30', '18:45',",
+                                            "'19:00', '19:15', '19:30', '19:45',",
+                                            "'20:00', '20:15', '20:30', '20:45',",
+                                            "'21:00', '21:15', '21:30', '21:45',",
+                                            "'22:00', '22:15', '22:30', '22:45',",
+                                            "'23:00', '23:15', '23:30', '23:45'",
+                                            " ],",
+                                            "  onChangeDateTime:function(dp,$input){",
+                                            "    window.selecteddate = $input.val();",
+                                            "  }",
+                                            "});"
+                                        ],
+                                        "name": "afterrender",
+                                        "scope": "me"
+                                    },
+                                    "designerId": "1f1dcff5-a590-4fcf-aaec-e402007b0d33"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onTextfieldChange",
+                                        "implHandler": [
+                                            "window.selecteddate=newValue;"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "designerId": "088db1d1-81bd-4b1f-803a-50ef40500fb3"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "Show"
+                            },
+                            "designerId": "1e6582dd-c5bb-42ad-a403-ab25c419812a",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "if(!(window.selectedmeasure === undefined || window.selecteddate === undefined)){",
+                                            "  SSMeasureViewer.getApplication().getController('MapDataController').requestData(window.selectedmeasure,window.selecteddate);",
+                                            "}"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "designerId": "0ae09225-7b90-48aa-bfa9-d67b6e8a83e8"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onFormAfterRender",
+                        "implHandler": [
+                            "component.setPosition(50,11);"
+                        ],
+                        "name": "afterrender",
+                        "scope": "me"
+                    },
+                    "designerId": "bf7c6c55-73ab-415a-a196-06058eea0d5f"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fixed": true,
+                "focusOnToFront": false,
+                "header": false,
+                "id": "mapPanel",
+                "layout|flex": null,
+                "layout|floatable": false,
+                "layout|region": "center",
+                "manageHeight": false,
+                "minHeight": null,
+                "minWidth": null,
+                "title": "mapPanel",
+                "toFrontOnShow": false
+            },
+            "designerId": "d08a2f9f-d991-437e-9672-735b81f2d1b9",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onMapPanelAfterRender",
+                        "implHandler": [
+                            "L.mapbox.accessToken = 'pk.eyJ1IjoibWFyY29zZ2FyY2lhY2FzYWRvIiwiYSI6Ild2VjVZU2MifQ.Bmu6M3w5K0Kcqti3hDFaQQ';",
+                            "var map = L.mapbox.map('mapPanel-innerCt', 'marcosgarciacasado.j41hkh3h');",
+                            "",
+                            "window.map = map;",
+                            "",
+                            "var panel = Ext.getCmp('form');",
+                            "panel.show();"
+                        ],
+                        "name": "afterrender",
+                        "scope": "me"
+                    },
+                    "designerId": "cef6f825-35a1-429c-b738-c5d984ca3413"
+                }
+            ]
+        }
+    ]
+}

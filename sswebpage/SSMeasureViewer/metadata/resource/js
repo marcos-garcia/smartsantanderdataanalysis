@@ -1,0 +1,13 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js",
+        "url": "mapbox.js"
+    },
+    "designerId": "0858e2c9-5c28-4b4a-afd1-d07ea93369ac"
+}

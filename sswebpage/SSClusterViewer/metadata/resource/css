@@ -1,0 +1,13 @@
+{
+    "type": "cssresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "css",
+        "url": "resources/cal-heatmap-master/cal-heatmap.css"
+    },
+    "designerId": "29075c62-6836-4d08-a65f-07c962b87d54"
+}

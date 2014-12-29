@@ -1,0 +1,13 @@
+{
+    "type": "cssresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "css",
+        "url": "https://api.tiles.mapbox.com/mapbox.js/v2.0.0/mapbox.css"
+    },
+    "designerId": "a3fee512-2c3a-49a4-8d17-24170fb91069"
+}

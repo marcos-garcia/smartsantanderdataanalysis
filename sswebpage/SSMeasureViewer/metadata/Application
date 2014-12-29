@@ -1,0 +1,27 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "controllers": [
+            "MapDataController"
+        ],
+        "models": [
+            "Measure",
+            "MeasureDim"
+        ],
+        "name": "SSMeasureViewer",
+        "stores": [
+            "measureStore",
+            "measureDimStore",
+            "MyStore"
+        ],
+        "views": [
+            "MyViewport"
+        ]
+    },
+    "designerId": "application"
+}

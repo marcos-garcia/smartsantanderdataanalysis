@@ -1,0 +1,68 @@
+{
+    "name": "SSClusterViewer",
+    "settings": {
+        "cmd": {
+            "license": "",
+            "cmdVersion": "",
+            "frameworkVersion": ""
+        },
+        "canvasControls": {
+            "viewportSize": {
+                "name": "Auto Expand",
+                "builtIn": true,
+                "height": null,
+                "width": null
+            }
+        },
+        "urlPrefix": "http://localhost:8900/SSClusterViewer/",
+        "exportPath": "/opt/apache-tomcat-7.0.54/webapps/SSClusterViewer",
+        "spacesToIndent": 4,
+        "sdkPath": "",
+        "lineEnding": "LF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "buildShouldOverwriteIndex": true,
+        "generateArchitectVersion": true,
+        "displayfield-ExtBox1-1534-inputEl": "Not Installed",
+        "displayfield-ExtBox1-2050-inputEl": "Not Installed",
+        "displayfield-ExtBox1-1390-inputEl": "Not Installed"
+    },
+    "xdsVersion": "3.0.4",
+    "xdsBuild": 1386,
+    "schemaVersion": 1,
+    "upgradeVersion": 300000000004,
+    "framework": "ext42",
+    "viewOrderMap": {
+        "view": [
+            "fcb36571-5be3-43c9-9ca5-7186643b8845"
+        ],
+        "store": [
+            "2b72fde7-54ee-4da0-994f-462fe0373351",
+            "da78ea29-c0a3-430b-afa1-484859277a36",
+            "0f187705-a261-4154-8649-1f9b9599b356"
+        ],
+        "controller": [
+            "4ec6fea1-662f-4b3b-90af-539ca744b327"
+        ],
+        "model": [
+            "e34cd334-523e-4626-97fd-d32a2a762eb9",
+            "59ed1a7c-8c1e-4d81-b9d3-71101d07f371"
+        ],
+        "resource": [
+            "6dd935e8-a35e-4e39-a68a-f1ee7939ebfb",
+            "3cdd7717-b26b-4229-9bf0-38edccdb68a1",
+            "ae5a1a5a-b0b9-4cbb-a1c2-6a52eee1cbd5",
+            "29075c62-6836-4d08-a65f-07c962b87d54",
+            "1013fe4f-48f7-41dc-9288-88a7ad69086c",
+            "6b867b0f-541d-48b5-8eea-48b9a29cb726",
+            "8e200735-3ea7-43de-9327-646023f986c7",
+            "2952b15b-4a0d-4db6-85af-573404feb0ca",
+            "4447d263-608d-4507-af57-345e223b1f2d",
+            "d0320a38-1842-41f5-a2a5-17ca92c3cf6c",
+            "731d7537-f4d3-47aa-934e-cbcc1c216f63"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}
