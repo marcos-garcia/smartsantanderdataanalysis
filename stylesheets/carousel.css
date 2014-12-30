@@ -1,0 +1,7 @@
+.carousel-caption {
+background-color: rgba(0,0,0,0.3);
+height: 70%;
+}
+div#myCarousel {
+margin-bottom: 100px;
+}
