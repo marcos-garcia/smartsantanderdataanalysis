@@ -39,32 +39,10 @@
                                     <a href="#intro">Introducci&oacute;n</a>
                                 </li>
                                 <li>
-                                    <a href="#about">About</a>
+                                    <a href="#arquitectura">Arquitectura</a>
                                 </li>
                                 <li>
                                     <a href="#contacto">Desarrolladores y Participantes</a>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="#">Action</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Another action</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Something else here</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li class="dropdown-header">Nav header</li>
-                                        <li>
-                                            <a href="#">Separated link</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">One more separated link</a>
-                                        </li>
-                                    </ul>
                                 </li>
                             </ul>
                         </div>
@@ -136,37 +114,50 @@
                 </div>
             </div>
             <hr class="featurette-divider">
-            <div class="row featurette">
-                <div class="col-md-5">
-                    <img class="featurette-image img-responsive" src="http://pinegrow.com/placeholders/img7.jpg" alt="Generic placeholder image">
+            <div id="arquitectura" class="row featurette">
+                <div class="col-md-6">
+                    <img class="featurette-image img-responsive" src="images/arquitectura.jpg" alt="Arquitectura del Sistema">
                 </div>
-                <div class="col-md-7">
-                    <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                <div class="col-md-6">
+                    <h2 class="featurette-heading">Arquitectura Big Data</h2>
+                    <p class="lead">La arquitectura construida ofrece una gran escalabilidad, por lo que a medida que los datos crecen, basta con aumentar el n&uacute;mero de m&aacute;quinas que componen el cluster para disminuir proporcionalmente el tiempo de ejecuci&oacute;n de los trabajos.</p>
+                    <p class="lead">Se ha utilizado una serie de herramientas que componen esta arquitectura escalable: <a href="http://kafka.apache.org/">Kafka</a>, <a href="http://flume.apache.org/">Flume</a>, <a href="http://hadoop.apache.org/">Hadoop HFDS</a>, <a href="https://spark.apache.org/">Spark</a>, <a href="https://storm.apache.org/">Storm</a>, <a href="http://cassandra.apache.org/">Cassandra</a>...</p>                    
+                    <p><a class="btn btn-lg btn-primary" href="arquitectura" role="button">Arquitectura del Sistema</a></p>
                 </div>
             </div>
             <hr class="featurette-divider">
       <!-- Three columns of text below the carousel -->
       <div id="contacto" class="row">
+  		<div class="span9">
+            <h2 class="featurette-heading">Desarrolladores y Participantes</h2>
+  		</div>
+	  </div>
+      <div class="row">
         <div class="col-lg-4">
           <a href="http://www.marcosgarciacasado.com/"><img class="img-circle" src="images/mgc.png" alt="Marcos García Casado" style="width: 140px; height: 140px;"></a>
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h2>Marcos Garc&iacute;a <a href="https://www.linkedin.com/in/marcosgarciacasado"><img src="images/linkedin.png" alt="LinkedIn"></a></h2>
+          <p>Alumno del programa <a href="http://www.u-tad.com/estudios/experto-en-big-data/">Experto en Big Data</a> de la <a href="http://www.u-tad.com/">U-Tad</a></p>
+          <p>Desarrollador del proyecto.</p>
+          <p><a class="btn btn-default" href="http://www.marcosgarciacasado.com/" role="button">P&aacute;gina personal &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <a href="http://josepcurto.com/"><img class="img-circle" src="images/jcd.png" alt="Josep Curto Díaz" style="width: 140px; height: 140px;"></a>
-          <h2>Heading</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h2>Josep Curto <a href="https://www.linkedin.com/in/josepcurto"><img src="images/linkedin.png" alt="LinkedIn"></a></h2>
+          <p>Profesor en la <a href="http://www.u-tad.com/">U-Tad</a>. Programa <a href="http://www.u-tad.com/estudios/experto-en-big-data/">Experto en Big Data</a></p>
+          <p>Tutor del proyecto.</p>
+          <p><a class="btn btn-default" href="http://josepcurto.com/" role="button">P&aacute;gina personal &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <a href="http://www.u-tad.com/"><img class="img-circle" src="images/utad.png" alt="Generic placeholder image" style="width: 140px; height: 140px;"></a>
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h2>U-Tad</h2>
+          <p>Centro Universitario de Tecnolog&iacute;a y Arte Digital. Proyecto fin de m&aacute;ster del t&iacute;tulo <a href="http://www.u-tad.com/estudios/experto-en-big-data/">Experto en Big Data</a></p>
+          <p><a class="btn btn-default" href="http://www.u-tad.com/" role="button">P&aacute;gina oficial &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
+  		<div class="span9">
+            * Agradecer tambi&eacute;n a la empresa <a href="http://www.bayesforecast.com">Bayes Forecast</a> por el pr&eacute;stamo de sus sistemas como entorno de desarrollo.
+  		</div>
+	  </div>
             <hr class="featurette-divider">
             <!-- /END THE FEATURETTES -->
             <!-- FOOTER -->
