@@ -37,12 +37,12 @@
 <li>Smart Mobility: Permiten mejorar las redes de transporte de las ciudades, ofreciendo un servicio inteligente de información de tráfico con el que se pueda controlar eficientemente el flujo de vehículos por la zona urbana.</li>
 <li>Smart Living: Engloba problemas relacionados con varios aspectos de la calidad de vida, como la cultura, salud, seguridad, turismo, etc…</li>
  </ul>
-<img src="images/ilu1.png">Clasificación de las Smart Cities del CRS de Viena</img>
+<img src="images/ilu1.png" alt="Clasificación de las Smart Cities del CRS de Viena"></img>
 <p>Varios estudios concluyen que en los próximos años el número de personas que vivirán en zonas urbanas crecerá considerablemente, por lo que la optimización de recursos de las ciudades resulta un problema que se ha de resolver con la mayor eficacia posible. El uso de las TIC y la conversión de las ciudades en Smart Cities puede ser la clave para conseguir dichas mejoras y hacer posible la convivencia de una población mayor a la actual en espacios urbanos, siempre que estos alcancen un nivel de eficiencia y sostenibilidad suficiente.</p>
 <h2>Smart Cities en España</h2>
 <p>España es un país que ha invertido enormemente en el uso de energías renovables y en desarrollo sostenible. De hecho, actualmente, las energías renovables cubren en torno al 14% del consumo total del país (3), y tiene un plan de crecimiento de su uso en el que se ha marcado como objetivo cubrir el 20% para el año 2020.</p>
 <p>Para el uso eficiente de esta energía generada en espacios urbanos, es esencial la transformación de ciudades en Smart Cities, y en España también hay una fuerte inversión en el uso de las TIC (4). Existen más de 50 ciudades que conforman una red española de ciudades inteligentes llamadas RECI, con el objetivo de, además de aprovechar al máximo los recursos energéticos, mejorar los servicios de estas ciudades y reducir el gasto público, generando así progreso y atrayendo actividad económica.</p>
-<img src="images/ilu2.png">Mapa de ciudades que conforman la RECI</img>
+<img src="images/ilu2.png" alt="Mapa de ciudades que conforman la RECI"></img>
 <p>La Red Española de Ciudades Inteligentes (5) divide sus actividades en cinco grupos de trabajo, según el objetivo de las TIC implantadas:</p>
 <ul>
 <li>Innovación Social: Trata mejoras en accesibilidad, cultura, participación ciudadana, salud, seguridad y emergencias, turismo y ocio, educación y gobierno abierto y open data.</li>
@@ -53,7 +53,7 @@
 </ul>
 <h2>El proyecto Smart Santander</h2>
 <p>Smart Santander (6) es una iniciativa para crear un banco de experimentos o testbed en el que se puedan desarrollar y probar aplicaciones y servicios para smart cities. Ofrece una interfaz de acceso a los datos que generan unos 20.000 sensores colocados a lo largo de las ciudades de Belgrado (Serbia), Guildford (Inglaterra), Lübeck (Alemania) y Santander (España, con 12.000 sensores) que recogen medidas relacionadas con la movilidad urbana y el medio ambiente.</p> 
-<img src="images/ilu3.png">Esquema de arquitectura del proyecto SmartSantander</img>
+<img src="images/ilu3.png" alt="Esquema de arquitectura del proyecto SmartSantander"></img>
 <p>La arquitectura del testbed comienza con la colocación de una red de sensores y repetidores a lo largo de la ciudad, llamados nodos IoT, los cuales leen o repiten los parámetros que generan los sensores utilizando el protocolo 802.15.4 de comunicación de dispositivos de bajo consumo. </p>
 <p>La información generada se envía a varios gateways que funcionan a modo de puerta de comunicación entre la infraestructura de sensores y los servidores centrales a los que se conectan los diferentes clientes a través de varias capas de servicios que se ofrecen: Autenticación, soporte de experimentos, gestión del testbed y soporte de aplicaciones.</p>
 <p>Actualmente existen varios experimentos que utilizan el testbed de SmartSantander como fuente de datos para probar las aplicaciones y herramientas que desarrollan. Entre ellos destacan los siguientes:</p>
@@ -80,7 +80,7 @@ Punto por punto, cada uno de los objetivos del proyecto son los que se describen
 <p>Para diseñar la arquitectura Big Data de la solución, es necesario primero ir punto por punto de los objetivos y definir para cada uno de ellos las herramientas tecnológicas ideales para desarrollar dichas tareas.</p>
 <p>Todos los objetivos anteriores requieren obtener previamente los datos emitidos por la arquitectura IoT del testbed de Santander, por lo que habrá que añadir un objetivo secundario que comprende la adquisición y almacenamiento de datos emitidos por los sensores.
 Para esta primera tarea de adquisición, es conveniente elaborar un estudio inicial de la información a recopilar. Se partirá de una interfaz web que ya ofrece el equipo de SmartSantander en su página web con un mapa con los datos actuales de cada uno de los sensores, en cada una de las magnitudes que miden.</p>
-<img src="images/ilu4.png">Interfaz web con acceso a los datos de sensores de SmartSantander</img>
+<img src="images/ilu4.png" alt="Interfaz web con acceso a los datos de sensores de SmartSantander"></img>
 <p>Para ayudar en la inserción, se desarrollará un proceso que leerá cada cierto tiempo los datos de la web y los almacenará.</p>
 <p>Este almacén de datos debe ser leído posteriormente por un proceso que distribuya la información en un sistema de ficheros HDFS. Para llevar esa tarea, se almacenarán las lecturas en una cola Apache Kafka, ya que es una herramienta escalable que permite llevar un offset del mensaje que cada uno de los consumidores va leyendo, permitiendo interrumpir y continuar la carga donde se dejó la última vez. Dicho consumidor será un agente Flume, que lea los mensajes, les pueda aplicar un tratamiento de limpieza y almacene finalmente las lecturas de manera distribuida y preparada para su acceso posterior por parte de cada una de las herramientas que se tengan que construir en cada uno de los objetivos indicados.</p>
 <p>Para el objetivo OBJ-01 referente a la visualización de las medidas agregadas de cada uno de los sensores por cada cuarto de hora, se necesitará realizar un proceso offline de tratamiento de datos que agregue y almacene de manera accesible por la web la información de las lecturas de datos. Para ello se construirá un job utilizando Apache Spark que lea los ficheros del HDFS y agregue la información para posteriormente almacenarla en una base de datos columnar que agilice el acceso a los datos desde la interfaz web. La base de datos elegida es Cassandra, que aporta unos tiempos de escritura bastante rápidos y permite la escalabilidad sin tener un punto único de fallo. Para acceder a esta base de datos por parte de la interfaz web, se construirá una API REST utilizando Spring que reciba las peticiones de los usuarios y acceda a la base de datos de Cassandra, que tendrá una tabla optimizada para cada una de las querys que la web necesite. La interfaz web se implementará utilizando ExtJS, junto con componentes HTML5 y JQuery que mostrarán los datos.</p>
@@ -109,7 +109,7 @@ Para esta primera tarea de adquisición, es conveniente elaborar un estudio inic
 </li>
 </ul>
 <p>En resumen, la arquitectura software que se pretende construir presenta el siguiente esquema:</p>
-<img src="images/ilu5.png">Arquitectura Software de la solución</img>
+<img src="images/ilu5.png" alt="Arquitectura Software de la solución"></img>
 <h2>Diseño de los elementos de la arquitectura</h2>
 <p>Una vez construido el diseño general de la solución Big Data, se ha procedido a diseñar y construir cada uno de los componentes que la forman. En este apartado se explican con detalle todos estos componentes, así como los problemas encontrados durante su implementación.</p>
 <h3>Proceso de web scrapping</h3>
@@ -224,7 +224,7 @@ Para esta primera tarea de adquisición, es conveniente elaborar un estudio inic
 <p>Se ha diseñado e implementado una topología en la que cada uno de los pasos tiene una tarea sencilla y que en conjunto realizan todo el trabajo que se desea.</p>
 <h4>Topología</h4>
 <p>La topología que se ha diseñado consta de 5 capas: 1 capa de spouts y 4 de bolts. Todas se comunican secuencialmente, habiendo un único camino en el tránsito de los datos:</p>
-<img src="images/ilu6.png">Esquema de topología del proceso Storm</img>
+<img src="images/ilu6.png" alt="Esquema de topología del proceso Storm"></img>
 <p>Las cinco capas de la topología son las siguientes:</p>
 <ul>
 <li>KafkaSpout: Conector de Kafka que introduce los mensajes de la cola con el tópico “ssda” a la red de procesos de la topología Storm. Este spout lo ofrece Apache Storm, su dependencia Maven se llama storm-kafka.</li>
@@ -241,7 +241,7 @@ Para esta primera tarea de adquisición, es conveniente elaborar un estudio inic
 <h4>Definición de variables</h4>
 <p>El primer paso para desarrollar el algoritmo consiste en definir las variables del modelo, las cuales serán la media de las temperaturas de los sensores por cada cuarto de hora. En total se tienen 96 variables diferentes, una por cada cuarto de hora que tiene un día completo. Cada elemento a clasificar se definirá por la fecha en la que se extrajeron esas magnitudes, sin hora.</p>
 <p>Finalmente hay que escoger el número de clusters o agrupaciones en las que se van a clasificar los días. Para ello, se hace un primer lanzamiento de varios cálculos en los que cada uno tendrá como parámetro un número de clusters diferentes. Se ha ejecutado de 2 a 7 grupos. Lo que se extrae es el error cuadrático del modelo para cada lanzamiento, con el fin de mostrar cada uno de los valores en un gráfico. Se espera que el gráfico tenga una pendiente descendente y que en un momento se observe un cambio de tendencia en el que el error comience a converger a un valor. En ese punto es en el que habrá que escoger el número de agrupaciones para el lanzamiento del clúster final.</p>
-<img src="images/ilu7.png">Gráfico de valores de errores cuadráticos</img>
+<img src="images/ilu7.png" alt="Gráfico de valores de errores cuadráticos"></img>
 <p>En el momento que se realizó el estudio para el cálculo del número óptimo de clusters, solo se tenían siete días completamente rellenos con datos, por lo que el gráfico desciende hasta error 0 cuando se llega a 7 grupos. Se ha decidido coger 6 como número de grupos de momento, pero es conveniente volver a buscar el número óptimo de grupos cuando se tenga más días almacenados en el HDFS. No obstante, ya se va observando un cambio de tendencia al ser la pendiente menos decreciente con más grupos.</p>
 <h4>Construcción del job para el lanzamiento del clúster</h4>
 <p>El código fuente del proceso Spark de clustering está en el fichero SSClusterCalc.scala en el proyecto ssbatch.</p>
@@ -266,11 +266,11 @@ Para esta primera tarea de adquisición, es conveniente elaborar un estudio inic
 <h3>Visualización de medidas agregadas</h3>
 <p>Para visualizar las medidas agregadas se ha pensado construir un mapa donde se pinten con marcadores los sensores con información de una magnitud elegida a través de un combobox, en un cuarto de hora dado escogido en un selector de fecha y hora.</p>
 <p>Estos marcadores se posicionan en el mapa dadas las coordenadas del sensor y al hacer click muestra el valor de la medida seleccionada. Además, los marcadores varían de color, de colores más fríos a más cálidos, según su valor dentro del rango marcado por la media y la desviación típica que se usó para calcular los filtros de datos espurios 𝜇−2𝜎, 𝜇+2𝜎.</p>
-<img src="images/ilu8.png">Visualización de datos agregados en el mapa de Santander</img>
+<img src="images/ilu8.png" alt="Visualización de datos agregados en el mapa de Santander"></img>
 <p>Para hacer el mapa se ha utilizado el servicio gratuito Mapbox, en el que se pueden guardar mapas personalizados. Utilizando su API para Javascript se han añadido los marcadores, que forman parte de la librería Leaflet.js de elementos de visualización de datos en mapas para JS.</p>
 <h3>Visualización de resultados del clúster</h3>
 <p>La otra visualización desarrollada es la de los resultados de la ejecución del clustering de clasificación de días por temperatura. Esta interfaz presenta en la parte izquierda superior los grupos de clasificación de días, pintados cada uno con un color asociativo. Debajo de los grupos se muestra un calendario en el que se encuentran coloreados los días que han entrado en el estudio. El color de cada uno de los días es el mismo que el del clúster al que ha sido asociado, con lo que se intenta conseguir un efecto de mapa de calor de los días estudiados.</p>
-<img src="images/ilu9.png">Visualización interactiva de los resultados del algoritmo de clustering</img>
+<img src="images/ilu9.png" alt="Visualización interactiva de los resultados del algoritmo de clustering"></img>
 <p>En el panel central de la aplicación web se tiene un gráfico, hecho con la librería Highcharts, en el que poder ver la comparativa entre los valores de los centroides de los clúster (seleccionables estos a través del panel anterior) y el valor medio de los cuartos de hora de un día, también seleccionable desde el calendario.</p>
 <p>Con esta interfaz, el usuario puede interactuar con los días y analizar las características del resultado de cada grupo, para luego catalogarlos: grupo de días cálidos, de días de frío… Además, puede sacar conclusiones en cuanto al cambio del tiempo con el paso de los días gracias a la visualización del calendario.</p>
     </body>
