@@ -18,14 +18,6 @@
     <![endif]-->
         <!-- Custom styles for this template -->
         <link href="stylesheets/carousel.css" rel="stylesheet">
-        <script>
-        $(document).ready(function(){
-    $(window).bind('scroll', function() {
-        var navHeight = $("#box1").height();
-        ($(window).scrollTop() > navHeight) ? $('nav').addClass('goToTop') : $('nav').removeClass('goToTop');
-    });
-});
-        </script>
     </head>
 
     <body>
@@ -318,5 +310,31 @@ Para esta primera tarea de adquisición, es conveniente elaborar un estudio inic
 </div>
 </div>
 </div>
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="https://raw.githubusercontent.com/twbs/bootstrap/master/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+        <!-- Google Analytics script -->
+        <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-54491895-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+        </script>
+                <script type="text/javascript">
+        $(document).ready(function(){
+    $(window).bind('scroll', function() {
+        var navHeight = $("#box1").height();
+        ($(window).scrollTop() > navHeight) ? $('nav').addClass('goToTop') : $('nav').removeClass('goToTop');
+    });
+});
+        </script>
     </body>
 </html>
