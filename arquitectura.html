@@ -9,6 +9,7 @@
 		<meta name="keywords"  content="santander, smartsantander, data, big data, utad, marcosgarciacasado, marcos garcia" />
         <title>Smart Santander Data Analysis - Arquitectura</title>
         <!-- Bootstrap core CSS -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -17,6 +18,14 @@
     <![endif]-->
         <!-- Custom styles for this template -->
         <link href="stylesheets/carousel.css" rel="stylesheet">
+        <script>
+        $(document).ready(function(){
+    $(window).bind('scroll', function() {
+        var navHeight = $("#box1").height();
+        ($(window).scrollTop() > navHeight) ? $('nav').addClass('goToTop') : $('nav').removeClass('goToTop');
+    });
+});
+        </script>
     </head>
 
     <body>
