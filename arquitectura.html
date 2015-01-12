@@ -18,6 +18,14 @@
     <![endif]-->
         <!-- Custom styles for this template -->
         <link href="stylesheets/carousel.css" rel="stylesheet">
+        <style>
+        .goToTop {
+  position: fixed;
+  top: 0;
+  height: 70px;
+  z-index: 1;
+}
+        </style>
     </head>
 
     <body>
@@ -329,12 +337,12 @@ Para esta primera tarea de adquisición, es conveniente elaborar un estudio inic
             } catch(err) {}
         </script>
                 <script type="text/javascript">
-        $(document).ready(function(){
-    $(window).bind('scroll', function() {
-        var navHeight = $("#box1").height();
-        ($(window).scrollTop() > navHeight) ? $('nav').addClass('goToTop') : $('nav').removeClass('goToTop');
-    });
-});
+                $(document).ready(function(){
+                    $(window).bind('scroll', function() {
+                        var navHeight = $("#box1").height();
+                        ($(window).scrollTop() > navHeight) ? $('nav').addClass('goToTop') : $('nav').removeClass('goToTop');
+                    });
+                });
         </script>
     </body>
 </html>
