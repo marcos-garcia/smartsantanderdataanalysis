@@ -55,19 +55,16 @@
       <div class="navbar-collapse nav-collapse collapse navbar-header">
         <ul class="nav navbar-nav">
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle js-activated">Dropdown <b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown">Antecedentes <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li class="dropdown-header">Dropdown header</li>
-              <li><a href="#">Separated link</a></li>
-              <li><a href="#">One more separated link</a></li>
+              <li><a href="#anteini">Inicio</a></li>
+              <li><a href="#antesci">Smart City</a></li>
+              <li><a href="#antesce">Smart Cities en España</a></li>
+              <li><a href="#antessd">El proyecto Smart Santander</a></li>
             </ul>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle js-activated" data-hover="dropdown">I Have a Submenu <b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown">I Have a Submenu <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><a tabindex="-1" href="#">Menu Item</a></li>
               <li><a tabindex="-1" href="#">Bootstrap 3 Does Not Support Submenus</a></li>
@@ -106,9 +103,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <h1>Antecedentes</h1>
+        <h1 id="anteini">Antecedentes</h1>
 <p>En este apartado se habla del estado del arte de las Smart Cities y del proyecto SmartSantander en concreto, desde el cual se recogen los datos de los sensores de la ciudad de Santander, y que se utilizan como fuentes de información para su posterior tratamiento en la arquitectura Big Data desarrollada.</p>
-<h2>Smart City</h2>
+<h2 id="antesci">Smart City</h2>
 <p>Existen varias definiciones de lo que significa una Smart City, aunque todas concluyen en que es el empleo de las Tecnologías de la Información y de la Comunicación, conocidas como TIC, para ofrecer servicios de información a nivel de zona urbana que permitan una mejora de ciertos elementos característicos de una ciudad, como pueden ser los servicios públicos, la sostenibilidad o la eficiencia de uso de sus recursos; e incluso suponer un impulso económico importante para la ciudad.</p>
 <p>Este término se ha llevado usando desde hace más de veinte años. Comenzó usándose con fines energéticos: monitorizar ciertos elementos que permitan optimizar el consumo de energía de una ciudad y conseguir un ahorro económico y una mejora en su sostenibilidad (1).</p>
 <p>Pero con el paso de los años se han comenzado a utilizar las TIC para otros fines, como son ayudas para mejorar el transporte y en el tráfico de vehículos en las ciudades, optimización de sistemas de climatización, construcción de edificios sostenibles, gobernanza y gestión de administracionesâ€¦</p>
@@ -124,7 +121,7 @@
  </ul>
 <img src="images/ilu1.png" class="captyimg" alt="Clasificación de las Smart Cities del CRS de Viena"></img>
 <p>Varios estudios concluyen que en los próximos años el número de personas que vivirán en zonas urbanas crecerá considerablemente, por lo que la optimización de recursos de las ciudades resulta un problema que se ha de resolver con la mayor eficacia posible. El uso de las TIC y la conversión de las ciudades en Smart Cities puede ser la clave para conseguir dichas mejoras y hacer posible la convivencia de una población mayor a la actual en espacios urbanos, siempre que estos alcancen un nivel de eficiencia y sostenibilidad suficiente.</p>
-<h2>Smart Cities en España</h2>
+<h2 id="antesce">Smart Cities en España</h2>
 <p>España es un país que ha invertido enormemente en el uso de energías renovables y en desarrollo sostenible. De hecho, actualmente, las energías renovables cubren en torno al 14% del consumo total del país (3), y tiene un plan de crecimiento de su uso en el que se ha marcado como objetivo cubrir el 20% para el año 2020.</p>
 <p>Para el uso eficiente de esta energía generada en espacios urbanos, es esencial la transformación de ciudades en Smart Cities, y en España también hay una fuerte inversión en el uso de las TIC (4). Existen más de 50 ciudades que conforman una red española de ciudades inteligentes llamadas RECI, con el objetivo de, además de aprovechar al máximo los recursos energéticos, mejorar los servicios de estas ciudades y reducir el gasto público, generando así progreso y atrayendo actividad económica.</p>
 <img src="images/ilu2.png" class="captyimg" alt="Mapa de ciudades que conforman la RECI"></img>
@@ -136,7 +133,7 @@
 <li>Movilidad urbana: Con sistemas inteligentes de transportes y movilidad eléctrica.</li>
 <li>Gobierno, Economía y Negocios: Que trata temas de administración electrónica, nuevos modelos de negocio, empleo, comercio electrónico, CPDs virtuales y entornos cloud.</li>
 </ul>
-<h2>El proyecto Smart Santander</h2>
+<h2 id="antessd">El proyecto Smart Santander</h2>
 <p>Smart Santander (6) es una iniciativa para crear un banco de experimentos o testbed en el que se puedan desarrollar y probar aplicaciones y servicios para smart cities. Ofrece una interfaz de acceso a los datos que generan unos 20.000 sensores colocados a lo largo de las ciudades de Belgrado (Serbia), Guildford (Inglaterra), LÃ¼beck (Alemania) y Santander (España, con 12.000 sensores) que recogen medidas relacionadas con la movilidad urbana y el medio ambiente.</p> 
 <img src="images/ilu3.png" class="captyimg" alt="Esquema de arquitectura del proyecto SmartSantander"></img>
 <p>La arquitectura del testbed comienza con la colocación de una red de sensores y repetidores a lo largo de la ciudad, llamados nodos IoT, los cuales leen o repiten los parámetros que generan los sensores utilizando el protocolo 802.15.4 de comunicación de dispositivos de bajo consumo. </p>
