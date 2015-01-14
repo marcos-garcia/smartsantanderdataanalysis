@@ -63,10 +63,31 @@
               <li><a href="#antessd">El proyecto Smart Santander</a></li>
             </ul>
           </li>
+          <li><a href="#desini">Desarrollo</a></li>
+          <li><a href="#desobj">Objetivos del proyecto</a></li>
+          <li><a href="#desarq">Arquitectura de la solución</a></li>
+          <li>
+			<a href="#desdis" class="dropdown-toggle js-activated" data-toggle="dropdown">Diseño de los elementos de la arquitectura <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#webscr">Proceso de web scrapping</a></li>
+              <li><a href="#ingdat">Proceso de ingestión de datos y almacenamiento</a></li>
+              <li><a href="#batch">Procesamiento batch de tratamiento de la información</a></li>
+              <li><a href="#reatim">Procesamiento real-time de tratamiento de la información</a></li>
+              <li><a href="#calclu">Proceso de cálculo de clúster</a></li>
+              <li><a href="#apires">Sistema de acceso REST a la información</a></li>
+            </ul>
+          </li>
+          <li>
+			<a href="#desvis" class="dropdown-toggle js-activated" data-toggle="dropdown">Visualización de resultados <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#desvma">Visualización de medidas agregadas</a></li>
+              <li><a href="#desvcl">Visualización de resultados del clúster</a></li>
+            </ul>
+          </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown">Desarrollo <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="#desini">Inicio</a></li>
+              <li><a href="#desini">Desarrollo</a></li>
               <li><a href="#desobj">Objetivos del proyecto</a></li>
               <li><a href="#desarq">Arquitectura de la solución</a></li>
               <li><a href="#desdis">Diseño de los elementos de la arquitectura</a>
@@ -138,9 +159,9 @@
     <li>InterDataNet: Este experimento consiste en la elaboración de una herramienta web para la monitorización de todos los sensores de la infraestructura IoT, mostrando las medidas de cada uno en un mapa de la ciudad.</li>
     <li>SEN2SOC: Pretende desarrollar una aplicación móvil en la que los usuarios puedan visualizar información y alertas sobre los datos leídos por los sensores, así como eventos sociales de la ciudad recogidos mediante un análisis de la información de redes sociales.</li>
 </ul>
-<h1>Desarrollo</h1>
+<h1 id="desini">Desarrollo</h1>
 <p>A continuación se describe el proceso de desarrollo seguido para la elaboración de la arquitectura Big Data del proyecto. Se comienza con una visión global del producto que se desea construir, para posteriormente ir desgranando en detalle cada uno de los elementos desarrollados y terminar finalmente con la visualización final de datos diseñada.</p>
-<h2>Objetivos del proyecto</h2>
+<h2 id="desobj">Objetivos del proyecto</h2>
 <p>El proyecto consiste en realizar un nuevo experimento con el testbed del proyecto SmartSantander, que recoja los datos que genera la infraestructura de sensores que compone la Smart City.</p>
 <p>Se desea utilizar tecnología Big Data para tratar toda esa información y generar varios análisis avanzados de los datos recolectados.
 Punto por punto, cada uno de los objetivos del proyecto son los que se describen a continuación:</p>
@@ -151,7 +172,7 @@ Punto por punto, cada uno de los objetivos del proyecto son los que se describen
     <li>OBJ-04. Al ser un proyecto Big Data, se desea también que los procesos de cálculo, almacenamiento y análisis de la información sean escalables, de manera que se elija la tecnología que mejor se adapte a cada una de las partes de la arquitectura que se diseñe y se construya.</li>
     <li>OBJ-05. Finalmente, se prefiere utilizar herramientas de Big Data de uso en la actualidad y que no se hayan impartido en clase, con el fin de completar los conocimientos adquiridos con experiencia en otras tecnologías emergentes; como por ejemplo utilizar Apache Spark para procesamiento offline de la información.</li>
 </ul>
-<h2>Arquitectura de la solución</h2>
+<h2  id="desarq">Arquitectura de la solución</h2>
 <p>Para diseñar la arquitectura Big Data de la solución, es necesario primero ir punto por punto de los objetivos y definir para cada uno de ellos las herramientas tecnológicas ideales para desarrollar dichas tareas.</p>
 <p>Todos los objetivos anteriores requieren obtener previamente los datos emitidos por la arquitectura IoT del testbed de Santander, por lo que habrá que añadir un objetivo secundario que comprende la adquisición y almacenamiento de datos emitidos por los sensores.
 Para esta primera tarea de adquisición, es conveniente elaborar un estudio inicial de la información a recopilar. Se partirá de una interfaz web que ya ofrece el equipo de SmartSantander en su página web con un mapa con los datos actuales de cada uno de los sensores, en cada una de las magnitudes que miden.</p>
@@ -185,9 +206,9 @@ Para esta primera tarea de adquisición, es conveniente elaborar un estudio inic
 </ul>
 <p>En resumen, la arquitectura software que se pretende construir presenta el siguiente esquema:</p>
 <img src="images/ilu5.png" class="captyimg" alt="Arquitectura Software de la solución"></img>
-<h2>Diseño de los elementos de la arquitectura</h2>
+<h2 id="desdis">Diseño de los elementos de la arquitectura</h2>
 <p>Una vez construido el diseño general de la solución Big Data, se ha procedido a diseñar y construir cada uno de los componentes que la forman. En este apartado se explican con detalle todos estos componentes, así como los problemas encontrados durante su implementación.</p>
-<h3>Proceso de web scrapping</h3>
+<h3 id="webscr">Proceso de web scrapping</h3>
 <p>El proceso de web scrapping tiene básicamente el objetivo de leer cada cierto intervalo de tiempo los datos de sensores de la web fuente y almacenarlos en una cola Kafka.</p>
 <p>Para ello, se ha creado una aplicación Java que recibe tres parámetros:</p>
 <ul>
@@ -218,7 +239,7 @@ Para esta primera tarea de adquisición, es conveniente elaborar un estudio inic
 <li>i: 15</li>
 <li>k: localhost:2181</li>
 </ul>
-<h3>Proceso de ingestión de datos y almacenamiento</h3>
+<h3 id="ingdat">Proceso de ingestión de datos y almacenamiento</h3>
 <p>Una vez se tenga la información almacenada en la cola Kafka, el siguiente paso es el de leer dicha cola y almacenarla en un sistema de ficheros distribuido como HDFS. Para ello se ha utilizado Apache Flume, en el que un agente leerá como consumidor de mensajes la cola â€œssdaâ€� de Kafka, realizará un tratamiento de limpieza de los objetos JSON para extraer los valores de las magnitudes leídas por sensor. Finalmente, se ha configurado un sink HDFS para almacenar los datos en varios ficheros cuyo formato se describe posteriormente en este apartado.</p>
 <h4>Source</h4>
 <p>El Source que se ha de configurar en el agente Flume debe ser capaz de leer los mensajes de una cola Kafka. En la instalación inicial de Flumen no se encuentra ese elemento, por lo que se ha descargado y añadido uno diferente, localizado en github.com/baniuyao/flume-ng-kafka-source. Este artefacto es compatible con la versión 0.7.2 de Kafka y no con las versiones actuales 0.8.1, por lo que se ha tenido que estudiar el código y refactorizar las peticiones del consumidor Kafka para que se pueda utilizar con nuevas versiones.</p>
@@ -275,7 +296,7 @@ Para esta primera tarea de adquisición, es conveniente elaborar un estudio inic
 <p>El formato de almacenamiento permite que en algún momento se pueda crear una tabla externa con Hive con la que hacer querys rápidamente a todos los ficheros, utilizando el JSON SerDe como parser.</p>
 <p>Como ya se indicó anteriormente, cada día se almacenan alrededor de 50MB de información de sensores. Con un factor de replicación 3, esto aumenta a 150MB, con lo que el crecimiento de los datos mensual sería de aproximadamente 4.4GB. </p>
 <p>Inicialmente no es un problema Big Data en cuanto a la volumetría de la información a tratar, pero el proceso está preparado para añadir más información, ya sea por el crecimiento temporal indicado o por la inclusión de nuevos sensores o de nuevas ciudades en el almacén.</p>
-<h3>Procesamiento batch de tratamiento de la información</h3>
+<h3 id="batch">Procesamiento batch de tratamiento de la información</h3>
 <p>El proceso batch que se ha desarrollado trata de agregar la información almacenada en HDFS y guardarla en una base de datos Cassandra. El código de este paso se encuentra en la carpeta ssbatch. Es un proyecto Eclipse que utiliza Maven y está codificado en Scala.</p>
 <h4>Elección de herramientas de procesamiento</h4>
 <p>Para los procesos offline que se han construido, se ha decidido utilizar Spark, ya que es una herramienta emergente que aspira a sustituir a MapReduce, al poder controlar el almacenamiento en memoria o en disco de las estructuras de datos distribuidos, llamados RDDs, ofreciendo una velocidad mayor puesto que ahorra accesos a memoria persistente.</p>
@@ -292,7 +313,7 @@ Para esta primera tarea de adquisición, es conveniente elaborar un estudio inic
 <p>Con los datos filtrados se procede a agrupar los pares clave valor para calcular el agregado. Se calcula la media, por lo que en la agregación se recoge por un lado la suma de los valores y por otro el conteo. Finalmente, para obtener la media se realizaría una división entre ellos.</p>
 <p>Una vez se tiene el agregado calculado, se almacena en la base de datos de Cassandra. La tabla destino se llama ss_measures_agr y tiene los campos measure, time, latitude, longitude y value. La Row Key es (measure, time) para optimizar la consulta de las mediciones de una magnitud en un cuarto de hora concreto.</p>
 <p>También se guarda posteriormente en otra tabla llamada ss_measures_ts_agr con los mismos campos, pero esta vez la rowkey es measure, latitude y longitude; de manera que se puedan sacar de forma óptima series temporales con el histórico de medición de la medida elegida en las coordenadas seleccionadas.</p>
-<h3>Procesamiento real-time de tratamiento de la información</h3>
+<h3 id="reatim">Procesamiento real-time de tratamiento de la información</h3>
 <p>El proceso real-time realiza el mismo cálculo que el proceso batch de cálculos de agregado, con la diferencia de que lee de la cola Kafka de mensajes directamente y escribe en Cassandra el agregado del cuarto de hora actual, actualizándolo cada vez que cambia la información. El decalaje de tiempo entre que cambia el dato y se muestra en la visualización es simplemente el tiempo que tarda en ser recogido por el web-scrapper, el tiempo que tarde la cola Kafka en leer el mensaje del productor y enviárselo al consumidor, y el tiempo que tarde el proceso real-time en agregar la información y almacenarla en las tablas de Cassandra de las que se alimenta el visor web.</p>
 <h4>Elección de herramientas de procesamiento</h4>
 <p>La herramienta elegida para implementar este servicio ha sido Storm, ya que permite aumentar fácilmente el número de nodos de cómputo y por otro lado asegura que todos los mensajes lleguen a ser procesados.</p>
@@ -309,7 +330,7 @@ Para esta primera tarea de adquisición, es conveniente elaborar un estudio inic
 <li>CassandraSaveBolt: Este último paso se encarga simplemente de preparar una query de inserción en la base de datos Cassandra, concretamente en la tabla ss_measures_agr, e insertar el valor recibido del actual cuarto de hora.</li>
 </ul>
 <p>Al guardar los datos agregados en la misma tabla que lo guardaba el proceso batch, se integran automáticamente ambos resultados y es transparente para el usuario el funcionamiento interno del proceso de actualización de la información que ve. Este patrón de integración de la parte de tiempo real con la parte offline es lo que se conoce como arquitectura lambda.</p>
-<h3>Proceso de cálculo de clúster</h3>
+<h3 id="calclu">Proceso de cálculo de clúster</h3>
 <p>El objetivo del proceso de clúster es el de lanzar un algoritmo de clustering para clasificar los días en los que se tenga datos en varios grupos, de manera que los días de un grupo tengan una distribución parecida de valores de la magnitud estudiada por cada cuarto de hora. Se ha escogido la temperatura como magnitud para realizar el estudio.</p>
 <h4>Elección de la herramienta de cálculo analítico a utilizar</h4>
 <p>Se ha optado por utilizar la librería MLLib de Spark, ya que tiene un algoritmo para calcular de manera distribuida el clúster, pudiendo tener los datos de entrada en un RDD distribuido a lo largo del clúster. La ventaja de esto es que el cálculo también sería escalable, reduciéndose proporcionalmente el tiempo de ejecución a medida que se añaden nodos al clúster de Spark.</p>
@@ -324,7 +345,7 @@ Para esta primera tarea de adquisición, es conveniente elaborar un estudio inic
 <p>Una vez que se han preparado los datos para la entrada del clúster, un RDD de vectores de reales, se ejecuta. Para ello se llama a la librería MLLib, concretamente a la creación de un clúster KMeans con 6 grupos, 20 iteraciones de entrenamiento y el RDD formateado con los valores como entrada.</p>
 <p>Una vez entrenado el modelo, se inserta en la base de datos Cassandra tanto la asociación de cada día en su clúster, en la tabla ss_cluster_res, como los centroides de cada grupo, en la tabla ss_cluster_centers.</p>
 <p>Estas dos tablas son las que leerá la aplicación web posteriormente y con la que rellenará la visualización.</p>
-<h3>Sistema de acceso REST a la información</h3>
+<h3 id="apires">Sistema de acceso REST a la información</h3>
 <p>Para acceder a los datos desde puntos externos, se ha desarrollado una API REST para que sea utilizada posteriormente por las aplicaciones web u otras futuras que se desarrollen y que requieran consultar datos resultantes del tratamiento de datos realizado.</p>
 <p>La herramienta que se ha decidido utilizar ha sido el framework Spring para hacer servicios REST. Este servicio recibe peticiones GET desde interfaces externas que normalmente corresponden con una query a la base de datos Cassandra y devuelve objetos JSON con los datos resultantes.</p>
 <p>El código de esta sección del proyecto se encuentra en la carpeta ssdataaccess y es un proyecto Gradle desarrollado con Eclipse. Los servicios implementados hasta ahora son los siguientes:</p>
@@ -335,15 +356,15 @@ Para esta primera tarea de adquisición, es conveniente elaborar un estudio inic
 <li>clustercenter: devuelve los valores de los centroides de un clúster, cuyo identificador se pasa por parámetro. Los devuelve en forma de array de números reales.</li>
 <li>dayresults: dado un día y la magnitud, devuelve el conjunto de valores de cada cuarto de hora, como un array de números reales.</li>
 </ul>
-<h2>Visualización de resultados</h2>
+<h2 id="desvis">Visualización de resultados</h2>
 <p>En este apartado se describen las interfaces de visualización de datos generadas, tanto las medidas agregadas que se han calculado como la visualización de los resultados del clúster.</p>
 <p>Para construir ambas visualizaciones se ha utilizado el framework ExtJs de creación de aplicaciones web en Javascript, y se han colocado en el mismo servidor Tomcat que el servidor de la API REST de acceso a datos. Esto es esencial, ya que las peticiones se hacen a través de Ajax y no funciona dicho acceso a datos si no se encuentra bajo el mismo dominio y puerto.</p>
-<h3>Visualización de medidas agregadas</h3>
+<h3 id="desvma">Visualización de medidas agregadas</h3>
 <p>Para visualizar las medidas agregadas se ha pensado construir un mapa donde se pinten con marcadores los sensores con información de una magnitud elegida a través de un combobox, en un cuarto de hora dado escogido en un selector de fecha y hora.</p>
 <p>Estos marcadores se posicionan en el mapa dadas las coordenadas del sensor y al hacer click muestra el valor de la medida seleccionada. Además, los marcadores varían de color, de colores más fríos a más cálidos, según su valor dentro del rango marcado por la media y la desviación típica que se usó para calcular los filtros de datos espurios ð�œ‡âˆ’2ð�œŽ, ð�œ‡+2ð�œŽ.</p>
 <img src="images/ilu8.png" class="captyimg" alt="Visualización de datos agregados en el mapa de Santander"></img>
 <p>Para hacer el mapa se ha utilizado el servicio gratuito Mapbox, en el que se pueden guardar mapas personalizados. Utilizando su API para Javascript se han añadido los marcadores, que forman parte de la librería Leaflet.js de elementos de visualización de datos en mapas para JS.</p>
-<h3>Visualización de resultados del clúster</h3>
+<h3 id="desvcl">Visualización de resultados del clúster</h3>
 <p>La otra visualización desarrollada es la de los resultados de la ejecución del clustering de clasificación de días por temperatura. Esta interfaz presenta en la parte izquierda superior los grupos de clasificación de días, pintados cada uno con un color asociativo. Debajo de los grupos se muestra un calendario en el que se encuentran coloreados los días que han entrado en el estudio. El color de cada uno de los días es el mismo que el del clúster al que ha sido asociado, con lo que se intenta conseguir un efecto de mapa de calor de los días estudiados.</p>
 <img src="images/ilu9.png" class="captyimg" alt="Visualización interactiva de los resultados del algoritmo de clustering"></img>
 <p>En el panel central de la aplicación web se tiene un gráfico, hecho con la librería Highcharts, en el que poder ver la comparativa entre los valores de los centroides de los clúster (seleccionables estos a través del panel anterior) y el valor medio de los cuartos de hora de un día, también seleccionable desde el calendario.</p>
